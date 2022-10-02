@@ -7,14 +7,10 @@ import {
   RouterProvider,
   Route,
 } from "react-router-dom";
+import { IndexPage } from "./pages/IndexPage";
 
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <div>Hello world!</div>,
-  },
-]);
+
 
 const container = document.getElementById("root")
 if (!container) throw new Error('Failed to find the root element');
@@ -25,7 +21,7 @@ const root = ReactDOM.createRoot(container)
 root.render(
   <React.StrictMode>
     <ColorModeScript />
-    {/* <App /> */}
-    <RouterProvider router={router} />
+    <App />
+   
   </React.StrictMode>,
 )
