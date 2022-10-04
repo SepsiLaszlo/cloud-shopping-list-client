@@ -11,16 +11,15 @@ import {
   Flex,
   Square,
   background,
-  
 } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { IndexPage } from "./pages/IndexPage";
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 
-import { extendTheme } from '@chakra-ui/react'
-import { mode } from '@chakra-ui/theme-tools'
-import type { StyleFunctionProps } from '@chakra-ui/styled-system'
+import { extendTheme } from "@chakra-ui/react";
+import { mode } from "@chakra-ui/theme-tools";
+import type { StyleFunctionProps } from "@chakra-ui/styled-system";
 
 const router = createBrowserRouter([
   {
@@ -38,29 +37,35 @@ const theme = extendTheme({
     global: {
       // styles for the `body`
       body: {
-        bg: 'gray.400',
-        color: 'white',
+        bg: "white",
+        // color: 'white',
       },
-      // styles for the `a`
       a: {
-        color: 'teal.500',
+        color: "teal.500",
         _hover: {
-          textDecoration: 'underline',
+          textDecoration: "underline",
         },
+      },
+      p: {
+        color: "teal.500",
+        // _hover: {
+        //   textDecoration: "underline",
+        // },
+      },
+      div: {
+        color: "teal.500"
       },
     },
   },
-})
+});
 
 export const App = () => (
   <ChakraProvider theme={theme}>
-    <Helmet bodyAttributes={{'bgcolor':'red'}}>
-      
-    </Helmet>
-    <Box bg="red" height="100%">
-      <Box bg="green" maxWidth="1000px" mx="auto">
-        <RouterProvider router={router} />
-      </Box>
+    <Box maxWidth="1000px" mx="auto" padding={3}>
+      <Text textAlign="center" fontSize="4xl" mb={5}>
+        Cloud Shopping List
+      </Text>
+      <RouterProvider router={router} />
     </Box>
   </ChakraProvider>
 );
